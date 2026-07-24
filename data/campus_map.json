@@ -1,0 +1,32 @@
+{
+  "description": "Simulated campus map for the Accessible Campus Route Planner. All coordinates, distances and accessibility attributes are fabricated for teaching purposes and do not represent a real institution.",
+  "nodes": {
+    "main_gate":        {"name": "Main Gate",              "x": 0,   "y": 0},
+    "admin_block":      {"name": "Admin Block",             "x": 40,  "y": 10},
+    "library":          {"name": "Library",                 "x": 90,  "y": 30},
+    "lecture_hall_a":   {"name": "Lecture Hall A",           "x": 60,  "y": 70},
+    "lecture_hall_b":   {"name": "Lecture Hall B",           "x": 110, "y": 70},
+    "cafeteria":        {"name": "Cafeteria",                "x": 30,  "y": 60},
+    "student_center":   {"name": "Student Center",           "x": 70,  "y": 40},
+    "sports_complex":   {"name": "Sports Complex",           "x": 130, "y": 20},
+    "accessible_parking":{"name": "Accessible Parking Bay",  "x": 10,  "y": 20},
+    "elevator_tower":   {"name": "Elevator Tower (Block C)", "x": 95,  "y": 55}
+  },
+  "edges": [
+    {"from": "main_gate", "to": "admin_block", "distance": 45, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "main_gate", "to": "accessible_parking", "distance": 25, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "accessible_parking", "to": "cafeteria", "distance": 48, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "admin_block", "to": "student_center", "distance": 38, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "admin_block", "to": "library", "distance": 55, "wheelchair_accessible": false, "surface": "stairs"},
+    {"from": "cafeteria", "to": "student_center", "distance": 42, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "cafeteria", "to": "lecture_hall_a", "distance": 33, "wheelchair_accessible": false, "surface": "gravel_slope"},
+    {"from": "student_center", "to": "lecture_hall_a", "distance": 31, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "student_center", "to": "library", "distance": 20, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "library", "to": "elevator_tower", "distance": 15, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "elevator_tower", "to": "lecture_hall_b", "distance": 22, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "library", "to": "lecture_hall_b", "distance": 45, "wheelchair_accessible": false, "surface": "stairs"},
+    {"from": "lecture_hall_a", "to": "lecture_hall_b", "distance": 50, "wheelchair_accessible": false, "surface": "stairs"},
+    {"from": "lecture_hall_b", "to": "sports_complex", "distance": 40, "wheelchair_accessible": true, "surface": "paved"},
+    {"from": "library", "to": "sports_complex", "distance": 60, "wheelchair_accessible": true, "surface": "paved"}
+  ]
+}

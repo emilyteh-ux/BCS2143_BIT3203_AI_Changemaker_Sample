@@ -1,0 +1,6 @@
+# Core dependencies for the Accessible Campus Route Planner.
+# The search algorithms in src/search.py use only the Python standard library
+# (heapq, math, time); the packages below support testing, data generation
+# and optional result visualisation.
+pytest>=7.0
+matplotlib>=3.7
