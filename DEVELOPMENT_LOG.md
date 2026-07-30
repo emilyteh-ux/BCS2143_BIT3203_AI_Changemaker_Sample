@@ -19,3 +19,18 @@ note how work is spread across the assignment period rather than completed in on
   decided on hard constraint, since a "slightly shorter but inaccessible" route is not
   actually usable by the target user.
 
+## 30 July 2026 — Technical checkpoint
+
+- Formal problem formulation: completed in `docs/peas_and_formulation.md` (state, actions,
+  transition model, goal test, path cost, heuristic).
+- Working baseline: implemented `uniform_cost_search` in `src/search.py` and confirmed it
+  finds correct shortest paths on the sample map.
+- Algorithm or heuristic decisions: implemented `a_star_search` with the straight-line
+  heuristic in `heuristics.py`; confirmed admissibility reasoning (no path can be shorter
+  than the straight-line distance on this map).
+- Testing completed: `tests/test_search.py` — first two test cases written and passing
+  (accessibility constraint enforcement; baseline-vs-improved node comparison).
+- Problems found and corrections: initial A* implementation compared graph objects when
+  heap priorities tied, causing a `TypeError`; fixed by adding a monotonically increasing
+  tie-breaker counter to the heap entries.
+
