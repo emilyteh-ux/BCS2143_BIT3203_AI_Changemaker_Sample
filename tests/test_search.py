@@ -47,3 +47,35 @@ def test_a_star_expands_no_more_nodes_than_baseline():
     assert improved.nodes_expanded <= baseline.nodes_expanded
 
 
+def test_no_accessible_path_reports_failure_cleanly():
+    """Test case 3: failure handling. Build a tiny disconnected-when-accessible graph
+    and confirm the planner reports 'no path' rather than crashing or returning a
+    route through an inaccessible edge."""
+    graph = CampusGraph(
+        nodes={"a": {"name": "A", "x": 0, "y": 0}, "b": {"name": "B", "x": 10, "y": 0}},
+        adjacency={},
+    )
+    from graph import Edge
+    graph.adjacency = {
+        "a": [Edge("b", 10, False, "stairs")],
+        "b": [Edge("a", 10, False, "stairs")],
+    }
+
+    result = a_star_search(graph, "a", "b", straight_line_distance, accessibility_required=True)
+
+    assert result.found is False
+    assert result.path is None
+
+
+def test_full_map_route_has_plausible_cost():
+    """Test case 4: end-to-end run against the full sample map. The accessible route
+    from the main gate to Lecture Hall B should be found and its cost should be within
+    a plausible range given the map's edge distances."""
+    graph = load_graph()
+    result = a_star_search(graph, "main_gate", "lecture_hall_b", straight_line_distance,
+                            accessibility_required=True)
+
+    assert result.found
+    assert result.path[0] == "main_gate"
+    assert result.path[-1] == "lecture_hall_b"
+    assert 100 <= result.cost <= 250
