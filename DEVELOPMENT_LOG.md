@@ -34,3 +34,18 @@ note how work is spread across the assignment period rather than completed in on
   heap priorities tied, causing a `TypeError`; fixed by adding a monotonically increasing
   tie-breaker counter to the heap entries.
 
+## 4 August 2026 — Readiness checkpoint
+
+- Three test cases and results: expanded to four test cases including failure handling
+  (`test_no_accessible_path_reports_failure_cleanly`) and a full-map end-to-end check
+  (`test_full_map_route_has_plausible_cost`); all passing. Metrics recorded in
+  `results/test_results.md`.
+- Responsible AI reflection: completed in `docs/responsible_ai.md`, covering fairness,
+  privacy, safety, transparency, accessibility and sustainability.
+- Limitations: documented in README — small simulated map, no interface accessibility,
+  no handling of temporary obstructions.
+- Slides and video status: slide outline drafted in `presentation/README.md`; video
+  script drafted, recording scheduled before final submission.
+- Remaining work: polish README installation/testing instructions; finalise AI-use
+  declaration; tag final commit.
+
