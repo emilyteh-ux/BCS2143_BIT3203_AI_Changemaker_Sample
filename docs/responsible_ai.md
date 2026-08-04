@@ -1,49 +1,34 @@
-
 # Responsible AI
 
-**Fairness and bias.** The system scores routes using infrastructure and environmental
-attributes — lighting, CCTV coverage, pedestrian activity, and simulated crime-risk — rather
-than demographic or identity-based profiling of users or neighbourhoods. A risk in a real
-deployment is incomplete or outdated safety data (e.g. a streetlight that is broken but not
-yet reported, or a CCTV camera that is offline); mitigation would be a user-reporting channel
-and periodic data audits so no area is unfairly over- or under-penalised by the crime-risk
+**Fairness and bias.** The system scores routes using infrastructure and environmental. The lighting, CCTV coverage, pedestrian activity, and simulated crime-risk, rather than the actual risk of crime, which is hard to measure, and were considered in determining the attributes.
+More than demographic or identity-based user profiling or neighbourhood profiling. A risk in a real deployment: incomplete or obsolete safety information (e.g. a broken street light but one that is not known to be broken) Mediation, if it is reported, or a CCTV camera that is off-line; mitigation would be a user-reporting channel and regular data reviews to ensure that no region is over-penalised or under-penalised because of the crime-risk
 factor.
 
-**Privacy.** The agent processes sensitive real-time data, including the user's live location,
-destination, and, through Guardian Mode, an emergency contact. A real deployment should
-discard location data once a journey ends, only share location with the emergency contact if
-SOS is actually triggered, and avoid logging individual users' routes or journey history
+**Privacy.** The agent handles sensitive real-time information, such as the user's real-time location, destination, via Guardian Mode, and emergency contact. On a real deployment, this would be the case.
+Removes location data after journey has completed, only use location with emergency contact if SOS does trigger, but don't log individual users' routes or journey history
 without consent.
 
-**Safety.** Incorrect or outdated lighting, CCTV, or crime-risk labels could route a user onto
-a road that is less safe than the score suggests. Mitigation: recalculate routes when
-conditions change (e.g. a road closure or construction), source safety attributes from
-verified data where possible, and keep Guardian Mode and the SOS feature as a fallback if the
-recommended route still leads to an unsafe situation.
+**Safety.** A user may be directed to a false, or incorrect, lighting, CCTV or crime risk label. A road that is not as safe as the score indicates. Recalculating routes when: Mitigation.
+Safety attributes from conditions change (e.g. a road closure or construction). Where possible, verified data and use Guardian mode and SOS as a last resort. Even if the recommended route is taken, there is still an unsafe situation.
 
-**Security.** Because Guardian Mode shares live location and can contact a third party, the
-SOS pathway is a high-value target if the system is compromised. A production version would
-need to restrict location-sharing and SOS activation to explicit user opt-in per journey, and
-encrypt any transmitted location data, especially if it later accepts user-submitted safety
-reports that would need validation and moderation before being trusted.
+**Security.** Guardian Mode is shared real-time location and can reach a third party, SOS pathway is a high-value target if the system is compromised.**A production version will
+must only allow location-sharing and SOS to be activated when users explicitly opt-in per journey,
+Encrypt any location data that is being transmitted, particularly if it receives user-entered safety information later on.
+reports which require validation and moderation before being trusted.
 
-**Transparency.** The agent displays a safety score breakdown for each recommended route and
-explains why a recalculation occurred (e.g. road closure detected), so the user can see what
-trade-off was made — distance versus safety — rather than receiving an unexplained single
-answer.
+**Transparency.** Options are displayed, giving the agent a breakdown of safety scores for each recommended route.
+Describes why the recalculation has been made (e.g., road closure detected) to make it easier for the user to understand what
+The consequence that was chosen, distance versus safety was not just unexplained but also made.
 
-**Accessibility.** Route suggestions should also account for users with mobility constraints,
-such as avoiding stairs or poorly maintained pavements, alongside safety scoring. Offering
-accessibility as an additional route filter, and eventually a screen-reader-friendly or voice
-interface, would be a natural real-world extension beyond the current prototype.
+**Accessibility.** The routes suggested should also consider individuals who may have reduced mobility,
+**Safety scoring as well as measures such as avoiding stairs or poorly maintained pavements.**Offering
+navigability as an extra filter, then eventually a screen-reader friendly/voice
+To extend the current prototype would be an obvious real world extension to the interface.
 
-**Environmental sustainability.** By making walking feel safer, SafeRoute AI supports walking
-as a low-emission mode of urban transport. The underlying algorithms are also lightweight
-(small graph, no training required), so computational and energy cost is negligible — a minor
-positive rather than a significant sustainability finding on its own.
+**Environmental sustainability.** By making walking feel safer, SafeRoute AI is helping to support walking.
+As an alternative low emission transport in urban areas.**The algorithms used are also light-weight.
+There are negligible computational and energy costs (s small graph, no training required), a minor
+It's not a major sustainability discovery, of course, but a positive one.
 
-**Limitations.** This project is a prototype built on simulated safety data rather than a live
-feed from city infrastructure, so its outputs should be read as a demonstration of the
-approach rather than a validated safety tool. A real deployment would need agreements with
-city authorities or facilities offices for genuine lighting, CCTV, and crime-risk data, along
-with a clear process for keeping that data current as conditions on the ground change.
+**Limitations.** This project is not based on real safety data, but rather, a prototype. The outputs should be interpreted as an example of the from city infrastructure, its outputs are feed. It is not a proven safety measure, but rather an approach.**For a real deployment, agreements with would need to be hammered out.
+City authorities, or facilities offices, as far as actual lighting, CCTV, and crime risk information. Having a straightforward procedure to maintain this data up to date as ground conditions change.
