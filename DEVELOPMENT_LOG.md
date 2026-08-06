@@ -49,3 +49,11 @@ note how work is spread across the assignment period rather than completed in on
 - Remaining work: polish README installation/testing instructions; finalise AI-use
   declaration; tag final commit.
 
+## 6 August 2026 — Final submission
+
+- Final commit SHA: recorded at the tag `final-submission` in this repository's history.
+- Final tag: `final-submission`.
+- Summary of final changes: finalised README (added project title, 150-word description,
+  full run/test instructions), completed `AI_USE_DECLARATION.md`, confirmed all four tests
+  pass, confirmed `requirements.txt` is accurate, reviewed `.gitignore` to ensure no
+  secrets or personal data were ever committed.
